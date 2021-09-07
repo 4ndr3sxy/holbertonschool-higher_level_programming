@@ -18,14 +18,14 @@ listint_t *insert_node(listint_t **head, int number)
 		*head = newNode;
 		return (newNode);
 	}
+	if (number < (*head)->n)
+	{
+		newNode->next = *head;
+		*head = newNode;
+		return (newNode);
+	}
 	while (nodeMin && nodeMax->next)
 	{
-		if (number < nodeMin->n)
-		{
-			newNode->next = *head;
-			*head = newNode;
-			return (newNode);
-		}
 		else if (nodeMin->n <= number && nodeMax->n >= number)
 		{
 			newNode->next = nodeMax;
