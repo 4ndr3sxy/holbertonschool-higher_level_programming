@@ -7,8 +7,6 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *nodeMin = *head;
 	listint_t *nodeMax = (*head)->next;
 
-	if (!head)
-		return (NULL);
 	newNode = malloc(sizeof(listint_t));
 	if (!newNode)
 		return (NULL);
