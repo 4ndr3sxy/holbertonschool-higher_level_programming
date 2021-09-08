@@ -10,13 +10,16 @@ if __name__ == "__main__":
     numberTwo = int(sys.argv[3])
     operator = sys.argv[2]
     if operator == '+':
-        print(add(numberOne, numberTwo))
+        print("{:d} + {:d} = {:d}"
+              .format(numberOne, numberTwo, add(numberOne, numberTwo)))
     elif operator == '-':
-        print(sub(numberOne, numberTwo))
+        print("{:d} - {:d} = {:d}"
+              .format(numberOne, numberTwo, sub(numberOne, numberTwo)))
     elif operator == '/':
         print(div(numberOne, numberTwo))
     elif operator == '*':
-        print(mul(numberOne, numberTwo))
+        print("{:d} * {:d} = {:d}"
+              .format(numberOne, numberTwo, mul(numberOne, numberTwo)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
