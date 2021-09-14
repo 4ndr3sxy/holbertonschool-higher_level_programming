@@ -15,6 +15,9 @@ int is_palindrome(listint_t **head)
 	int middle;
 	int *newArray;
 
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
+
 	while (temp->next)
 	{
 		sizeList++;
