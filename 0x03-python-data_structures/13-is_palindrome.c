@@ -9,7 +9,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
-	int sizeList = 0;
+	int sizeList = 100;
 	int i = 0;
 	int j = 0;
 	int middle;
@@ -18,13 +18,7 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	while (temp->next)
-	{
-		sizeList++;
-		temp = temp->next;
-	}
 	newArray = malloc(sizeof(int) * sizeList);
-	temp = *head;
 	while (temp)
 	{
 		newArray[i] = temp->n;
