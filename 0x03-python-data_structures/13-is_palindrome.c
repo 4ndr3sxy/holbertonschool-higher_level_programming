@@ -9,16 +9,19 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
-	int sizeList = 50;
+	int sizeList = 0;
 	int i = 0;
 	int j = 0;
 	int middle;
 	int *newArray;
 
-	if (*head == NULL || (*head)->next == NULL)
-		return (1);
-
+	while (temp->next)
+	{
+		sizeList++;
+		temp = temp->next;
+	}
 	newArray = malloc(sizeof(int) * sizeList);
+	temp = *head;
 	while (temp)
 	{
 		newArray[i] = temp->n;
