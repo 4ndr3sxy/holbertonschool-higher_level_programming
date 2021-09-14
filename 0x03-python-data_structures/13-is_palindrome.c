@@ -1,5 +1,11 @@
 #include "lists.h"
+#include <stdlib.h>
 
+/**
+ * is_palindrome - Validate is a linked list is a palindrome
+ * @head: Address to linked list
+ * Return: 1 if is palindrome or 0 if not
+ */
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
@@ -7,13 +13,14 @@ int is_palindrome(listint_t **head)
 	int i = 0;
 	int j = 0;
 	int middle;
+	int *newArray;
 
 	while (temp->next)
 	{
 		sizeList++;
 		temp = temp->next;
 	}
-	int newArray[sizeList];
+	newArray = malloc(sizeof(int) * sizeList);
 	temp = *head;
 	while (temp)
 	{
@@ -27,10 +34,12 @@ int is_palindrome(listint_t **head)
 	{
 		if (newArray[j] != newArray[i])
 		{
-			return 0;
+			free(newArray);
+			return (0);
 		}
 		i--;
 		j++;
 	}
-	return 1;
+	free(newArray);
+	return (1);
 }
