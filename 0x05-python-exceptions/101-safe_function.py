@@ -5,8 +5,7 @@ stderr_fileno = sys.stderr
 
 def safe_function(fct, *args):
     try:
-        result = fct(args[0], args[1])
-        return result
+        return fct(*args)
     except Exception as ex:
         stderr_fileno.write("Exception: {}\n".format(ex))
         return None
