@@ -6,4 +6,5 @@ def safe_print_division(a, b):
     except:
         validate = True
     finally:
+        print("Inside result: {}".format(result if not validate else None))
         return result if not validate else None
