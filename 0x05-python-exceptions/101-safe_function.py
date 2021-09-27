@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+import sys
+stderr_fileno = sys.stderr
+
+
 def safe_function(fct, *args):
-    import sys
-    stderr_fileno = sys.stderr
     validate = True
     try:
         result = fct(args[0], args[1])
