@@ -6,17 +6,31 @@ class Square:
     """Object Square"""
     dict
 
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Contructor"""
         self.__size = size
+        self.__position = position
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
 
-    """Area of square"""
+    """get area"""
     def area(self):
         return self.__size * self.__size
+
+    """Print Squart"""
+    def my_print(self):
+        if self.__size == 0:
+            print()
+        else:
+            for i in range(0, self.__size):
+                for j in range(0, self.__size + self.__position[0]):
+                    if j < self.__position[0]:
+                        print(" ", end='')
+                    else:
+                        print("#", end='')
+                print()
 
     """Get size"""
     def get_size(self):
@@ -25,16 +39,6 @@ class Square:
     """Set size"""
     def set_size(self, value):
         self.__init__(value)
-
-    """Print square"""
-    def my_print(self):
-        if self.__size == 0:
-            print()
-        else:
-            for i in range(0, self.__size):
-                for j in range(0, self.__size):
-                    print("#", end='')
-                print()
 
     """Get position"""
     def get_position(self):
