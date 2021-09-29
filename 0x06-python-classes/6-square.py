@@ -27,9 +27,7 @@ class Square:
             print()
         else:
             for i in range(0, self.__size):
-                for j in range(0, self.__size +
-                               (self.__position[0]
-                                if self.__position[1] == 0 else 0)):
+                for j in range(0, self.__size + self.__position[0]):
                     if j < self.__position[0]:
                         print(" ", end='')
                     else:
@@ -42,7 +40,7 @@ class Square:
 
     """Set size"""
     def set_size(self, value):
-        self.__init__(value)
+        self.__init__(value, self.position)
 
     """Get position"""
     def get_position(self):
