@@ -25,15 +25,15 @@ class Square:
     def my_print(self):
         if self.__size == 0:
             print()
-        else:
-            for h in range(0, self.__position[1]):
-                print()
-            for i in range(0, self.__size):
-                for j in range(self.__position[0]):
-                    print(" ", end='')
-                for k in range(self.__size):
-                    print("#", end='')
-                print()
+            return
+        for h in range(0, self.__position[1]):
+            print()
+        for i in range(0, self.__size):
+            for j in range(0, self.__position[0]):
+                print(" ", end='')
+            for k in range(0, self.__size):
+                print("#", end='')
+            print()
 
     """Get size"""
     def get_size(self):
