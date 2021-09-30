@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-def magic_string(string=[]):
-    string += ["BestSchool"]
-    return ", ".join(string)
+def magic_string(val=[]):
+    val += ["BestSchool"]
+    return (", ".join(val))
