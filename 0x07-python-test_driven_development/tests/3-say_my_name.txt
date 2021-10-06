@@ -32,6 +32,11 @@ print the fisrt name and last name (two arguments)
     ...
     TypeError: last_name must be a string
 
+    >>> say_my_name(98, 89)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
     >>> say_my_name()
     Traceback (most recent call last):
     ...
