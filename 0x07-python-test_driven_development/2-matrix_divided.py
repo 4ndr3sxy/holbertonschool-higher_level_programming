@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""Function matrix_divided divide a matrix per a number"""
+
+
 def matrix_divided(matrix, div):
+    """Args: matrix, div
+        return new matrix with the values div in variable div
+        """
     size = len(matrix[0])
     if div == 0:
         raise ZeroDivisionError("division by zero")
