@@ -37,6 +37,24 @@ Print a text, changing '.' , '?' and ':' per '\n'
     <BLANKLINE>
     a crack
 
+    >>> text = "      Human?         is? a       crack"
+    >>> text_indentation(text)
+    Human?
+    <BLANKLINE>
+    is?
+    <BLANKLINE>
+    a       crack
+
+    >>> text = "               Human. is: a? crack"
+    >>> text_indentation(text)
+    Human.
+    <BLANKLINE>
+    is:
+    <BLANKLINE>
+    a?
+    <BLANKLINE>
+    crack
+
     >>> text = "Human. is: a? crack"
     >>> text_indentation(text)
     Human.
@@ -46,6 +64,28 @@ Print a text, changing '.' , '?' and ':' per '\n'
     a?
     <BLANKLINE>
     crack
+
+    >>> text = "Human. is:             a?              crack"
+    >>> text_indentation(text)
+    Human.
+    <BLANKLINE>
+    is:
+    <BLANKLINE>
+    a?
+    <BLANKLINE>
+    crack
+
+    >>> text = "Human. is:             a  :              cra.ck"
+    >>> text_indentation(text)
+    Human.
+    <BLANKLINE>
+    is:
+    <BLANKLINE>
+    a  :
+    <BLANKLINE>
+    cra.
+    <BLANKLINE>
+    ck
 
     >>> text = 2504
     >>> text_indentation(text)
@@ -58,3 +98,62 @@ Print a text, changing '.' , '?' and ':' per '\n'
     Traceback (most recent call last):
     ...
     TypeError: text must be a string
+
+    >>> text = "1997.77"
+    >>> text_indentation(text)
+    1997.
+    <BLANKLINE>
+    77
+
+    >>> text = "1997.77"
+    >>> text_indentation(text)
+    1997.
+    <BLANKLINE>
+    77
+
+    >>> text = ""
+    >>> text_indentation(text)
+
+    >>> text = "Human"
+    >>> text_indentation(text)
+    Human
+
+    >>> text = "H.u:m?a?n"
+    >>> text_indentation(text)
+    H.
+    <BLANKLINE>
+    u:
+    <BLANKLINE>
+    m?
+    <BLANKLINE>
+    a?
+    <BLANKLINE>
+    n
+
+    >>> text = "...:::???"
+    >>> text_indentation(text)
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+
+
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
