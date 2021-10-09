@@ -11,11 +11,13 @@ def lazy_matrix_mul(m_a, m_b):
     for groupa in m_a:
         for j in groupa:
             if type(j) not in (int, float):
-                raise ValueError("Scalar operands are not allowed, use '*' instead")
+                raise ValueError("Scalar operands \
+are not allowed, use '*' instead")
     for groupb in m_b:
         for k in groupb:
             if type(k) not in (int, float):
-                raise ValueError("Scalar operands are not allowed, use '*' instead")
+                raise ValueError("Scalar operands are \
+not allowed, use '*' instead")
     if len(m_a) == len(m_b):
         return np.matmul(m_a, m_b)
     else:
