@@ -60,3 +60,13 @@ return raise Exception
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
+
+    >>> add_integer(float(5), float(None))
+    Traceback (most recent call last):
+    ...
+    TypeError: float() argument must be a string or a number, not 'NoneType'
+
+    >>> add_integer(int(None))
+    Traceback (most recent call last):
+    ...
+    TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
