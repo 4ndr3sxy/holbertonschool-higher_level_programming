@@ -77,7 +77,7 @@ class TestMaxInteger(unittest.TestCase):
         array = [2.5, 4.33, 6.15 , 8.01]
         validator = self.validate_type_array(array, (float, int))
         self.assertEqual(validator, 1)
-    
+
     def test_03_case_type_array_success_float_int(self):
         array = [2.5, 4, 6.15 , 8]
         validator = self.validate_type_array(array, (float, int))
@@ -93,4 +93,14 @@ class TestMaxInteger(unittest.TestCase):
         validator = self.validate_type_array(array, (float, int))
         self.assertEqual(validator, 0)
 
-    
+    def test_04_case_list_mixed(self):
+        with self.assertRaises(TypeError):
+            max_integer([[1], [3], [5], [9], "house", [11]])
+
+    def test_04_case_list_tuple_fail(self):
+        """Typeerror"""
+        with self.assertRaises(TypeError):
+            max_integer([{20: 23, 14: 45}, (5, 10, 15)])
+
+
+
