@@ -8,7 +8,7 @@ def lazy_matrix_mul(m_a, m_b):
     """
     import numpy as np
 
-    for groupa in m_a, m_b:
+    for groupa in m_a:
         for j in groupa:
             if type(j) not in (int, float):
                 return "Scalar operands are not allowed, use '*' instead"
