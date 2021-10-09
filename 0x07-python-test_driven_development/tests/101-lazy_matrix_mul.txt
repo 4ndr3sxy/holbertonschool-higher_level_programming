@@ -67,3 +67,19 @@ Numbers Errors
     Traceback (most recent call last):
     ...
     ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+
+
+    >>> print(lazy_matrix_mul("Hello", [[2, 4, 6]]))
+    Traceback (most recent call last):
+    ...
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> print(lazy_matrix_mul([[2, 4, 6]], "world"))
+    Traceback (most recent call last):
+    ...
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> print(lazy_matrix_mul("hello", "world"))
+    Traceback (most recent call last):
+    ...
+    ValueError: Scalar operands are not allowed, use '*' instead
