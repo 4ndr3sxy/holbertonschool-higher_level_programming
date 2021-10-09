@@ -18,6 +18,10 @@ class TestMaxInteger(unittest.TestCase):
         array = [4.5, 4, 3, 2.8, 1]
         self.assertEqual(max_integer(array), 4.5)
 
+    def test_00_case_base_success_int_float_middle(self):
+        array = [4.5, 4, 88.3, 2.8, 1]
+        self.assertEqual(max_integer(array), 88.3)
+
     def test_00_case_base_success_one_value_float(self):
         array = [99.5]
         self.assertEqual(max_integer(array), 99.5)
