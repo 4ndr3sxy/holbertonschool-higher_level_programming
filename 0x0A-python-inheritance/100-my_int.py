@@ -5,5 +5,8 @@
 class MyInt(int):
     """Function to create new atribute"""
 
-    def __new__(cls, number):
-        return super(MyInt, cls).__new__(cls, number)
+    def __ne__(self, other):
+        return True
+
+    def __eq__(self, other):
+        return False
