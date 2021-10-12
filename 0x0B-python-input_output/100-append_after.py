@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Class/object Student"""
+
 
 def append_after(filename="", search_string="", new_string=""):
     inputfile = open(filename, 'r').readlines()
