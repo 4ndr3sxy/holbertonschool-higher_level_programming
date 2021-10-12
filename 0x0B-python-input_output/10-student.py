@@ -15,10 +15,10 @@ class Student:
 
     """Return a dictionary representation with filter"""
     def to_json(self, attrs=None):
-        if not attrs:
+        if attrs is None:
             return self.__dict__
         new_dict = dict()
-        for (key) in self.__dict__:
+        for key in self.__dict__:
             if key in attrs:
                 new_dict[key] = self.__dict__[key]
         return new_dict
