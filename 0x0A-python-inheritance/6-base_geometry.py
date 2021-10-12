@@ -3,8 +3,6 @@
 
 
 class BaseGeometry:
-    pass
-
     """classmethod with raise if area no implemented"""
     @classmethod
     def area(self):
