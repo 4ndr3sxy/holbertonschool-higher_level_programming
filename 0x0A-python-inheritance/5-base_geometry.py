@@ -2,6 +2,6 @@
 """Class/Object BaseGeometry"""
 
 
-class BaseGeometry():
+class BaseGeometry:
     """empty"""
     pass
