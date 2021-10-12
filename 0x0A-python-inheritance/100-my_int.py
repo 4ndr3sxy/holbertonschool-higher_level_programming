@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""Class/obj MyInt inheritance of int"""
+
+
 class MyInt(int):
-    def __new__(cls, number, *args, **kwargs):
-        return  super(MyInt, cls).__new__(cls, number)
+    """Function to create new atribute"""
+
+    def __new__(cls, number):
+        return super(MyInt, cls).__new__(cls, number)
