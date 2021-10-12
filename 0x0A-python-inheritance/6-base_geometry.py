@@ -2,8 +2,7 @@
 """Class/Object BaseGeometry"""
 
 
-
-class BaseGeometry():
+class BaseGeometry:
     pass
 
     """classmethod with raise if area no implemented"""
