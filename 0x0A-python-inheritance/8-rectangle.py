@@ -3,8 +3,6 @@
 
 BaseGeometry_ = __import__('7-base_geometry').BaseGeometry
 
-"""Class/object REctangle that inherits of BaseGeometry"""
-
 
 class Rectangle(BaseGeometry_):
     """Constructor with inheritance"""
