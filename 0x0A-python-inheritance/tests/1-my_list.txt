@@ -1,0 +1,56 @@
+===========================
+The ``1-my_list`` module
+===========================
+
+Using ``1-my_list``
+--------------------
+
+Imports module
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+
+============
+Testng cases
+============
+
+    >>> my_list = MyList()
+    >>> negative = MyList()
+    >>> negative.append(-5)
+    >>> negative.append(12)
+    >>> negative.append(-3)
+    >>> print(negative)
+    [-5, 12, -3]
+    >>> negative.print_sorted()
+    [-5, -3, 12]
+    >>> print(negative)
+    [-5, 12, -3]
+
+    >>> my_list = MyList()
+    >>> my_list.append(15)
+    >>> my_list.append(3)
+    >>> my_list.append(12)
+    >>> print(my_list)
+    [15, 3, 12]
+    >>> my_list.print_sorted()
+    [3, 12, 15]
+    >>> print(my_list)
+    [15, 3, 12]
+
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> print(my_list)
+    [1, 2, 3]
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+    >>> print(my_list)
+    [1, 2, 3]
+
+    >>> empty = MyList()
+    >>> print(empty)
+    []
+    >>> empty.print_sorted()
+    []
+    >>> print(empty)
+    []
