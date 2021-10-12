@@ -18,6 +18,18 @@ class TestMaxInteger(unittest.TestCase):
         array = [4.5, 4, 3, 2.8, 1]
         self.assertEqual(max_integer(array), 4.5)
 
+    def test_00_case_base_success_int_float_middle(self):
+        array = [4.5, 4, 88.3, 2.8, 1]
+        self.assertEqual(max_integer(array), 88.3)
+
+    def test_00_case_base_success_int_float_middle_negative(self):
+        array = [4.5, -4, 88.3, -2.8, 1]
+        self.assertEqual(max_integer(array), 88.3)
+
+    def test_00_case_base_success_int_float_all_negative(self):
+        array = [-4.5, -4, -88.3, -2.8, -1]
+        self.assertEqual(max_integer(array), -1)
+
     def test_00_case_base_success_one_value_float(self):
         array = [99.5]
         self.assertEqual(max_integer(array), 99.5)
@@ -77,7 +89,7 @@ class TestMaxInteger(unittest.TestCase):
         array = [2.5, 4.33, 6.15 , 8.01]
         validator = self.validate_type_array(array, (float, int))
         self.assertEqual(validator, 1)
-    
+
     def test_03_case_type_array_success_float_int(self):
         array = [2.5, 4, 6.15 , 8]
         validator = self.validate_type_array(array, (float, int))
@@ -93,4 +105,14 @@ class TestMaxInteger(unittest.TestCase):
         validator = self.validate_type_array(array, (float, int))
         self.assertEqual(validator, 0)
 
-    
+    def test_04_case_list_mixed(self):
+        with self.assertRaises(TypeError):
+            max_integer([[1], [3], [5], [9], "house", [11]])
+
+    def test_04_case_list_tuple_fail(self):
+        """Typeerror"""
+        with self.assertRaises(TypeError):
+            max_integer([{20: 23, 14: 45}, (5, 10, 15)])
+
+
+

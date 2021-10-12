@@ -25,6 +25,12 @@ return the add between two numbers
     >>> add_integer(100.3, -2)
     98
 
+    >>> add_integer(100.3, -2.8)
+    98
+
+    >>> add_integer(-100.3, -2.8)
+    -102
+
 =======
 Strings
 return raise Exception
@@ -44,3 +50,23 @@ return raise Exception
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
+
+    >>> add_integer("School", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(5, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+    >>> add_integer(float(5), float(None))
+    Traceback (most recent call last):
+    ...
+    TypeError: float() argument must be a string or a number, not 'NoneType'
+
+    >>> add_integer(int(None))
+    Traceback (most recent call last):
+    ...
+    TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
