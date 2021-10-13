@@ -10,9 +10,8 @@ def append_after(filename="", search_string="", new_string=""):
         new_string, set this 'new_string' after 'search_string'
     """
     inputfile = open(filename, 'r').readlines()
-    write_file = open(filename, 'w')
-    for line in inputfile:
-        write_file.write(line)
-        if search_string in line:
-            write_file.write(new_string)
-    write_file.close()
+    with open(filename, 'w') as infile:
+        for line in inputfile:
+            infile.write(line)
+            if search_string in line:
+                infile.write(new_string)
