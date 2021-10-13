@@ -4,6 +4,10 @@ the Pascal’s triangle of n"""
 
 
 def pascal_triangle(n):
+    """
+    Args:
+        n, number of colums of triangle pascal
+    """
     init_pascal = 1
     i = 0
     j = 0
