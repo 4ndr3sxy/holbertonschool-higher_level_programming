@@ -1,10 +1,16 @@
 #!/usr/bin/python3
 
+"""Imports"""
 import json
 
+"""Class/Object Base - base code to other class's"""
+
+
 class Base:
+    """No inheritance"""
     __nb_objects = 0
 
+    """Constructor"""
     def __init__(self, id=None):
         if id is not None:
             self.id = id
@@ -12,10 +18,12 @@ class Base:
             self.__class__.__nb_objects += 1
             self.id = self.__class__.__nb_objects
 
+    """Convert from python to Json"""
     @staticmethod
     def to_json_string(list_dictionaries):
         return json.dumps(list_dictionaries)
 
+    """Create file .json and save objects"""
     @classmethod
     def save_to_file(cls, list_objs):
         new_list = []
@@ -26,10 +34,12 @@ class Base:
                 new_list.append(obj_converted)
             f.write(cls.to_json_string(new_list))
 
+    """Convert from Json to Python object"""
     @staticmethod
     def from_json_string(json_string):
         return json.loads(json_string)
 
+    """Create instance using cls"""
     @classmethod
     def create(cls, **dictionary):
         if cls.__name__ == "Square":
@@ -39,6 +49,7 @@ class Base:
         new_obj.update(**dictionary)
         return new_obj
 
+    """Load information of file .json"""
     @classmethod
     def load_from_file(cls):
         new_list = []
