@@ -30,10 +30,11 @@ class Base:
         """Create file .json and save objects"""
         new_list = []
         filename = str(cls.__name__) + ".json"
-        with open(filename, 'w') as f:
+        if list_objs is not None:
             for i in range(len(list_objs)):
                 obj_converted = cls.to_dictionary(list_objs[i])
                 new_list.append(obj_converted)
+        with open(filename, 'w') as f:
             f.write(cls.to_json_string(new_list))
 
     @staticmethod
