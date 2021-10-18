@@ -48,7 +48,18 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """Return __dict__"""
-        return self.__dict__
+        """Return __dict__"""
+        new_dict = {}
+        for key, value in self.__dict__.items():
+            if key[:12] == "_Rectangle__":
+                temp_values = key[12:]
+                if temp_values == "height" or temp_values == "width":
+                    new_dict["size"] = value
+                else:
+                    new_dict[key[12:]] = value
+            else:
+                new_dict[key] = value
+        return new_dict
 
     def __str__(self):
         """Standar print()"""
