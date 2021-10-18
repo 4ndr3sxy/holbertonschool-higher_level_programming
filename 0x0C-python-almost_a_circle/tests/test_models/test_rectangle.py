@@ -25,7 +25,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_00_case_id_default(self):
         new_obj = Rectangle(5, 10)
-        self.assertEqual(new_obj.id, 2)
+        self.assertEqual(new_obj.id, 10)
 
     def test_00_case_width_success_01(self):
         new_obj = Rectangle(8, 12, 5, 3, 26)
