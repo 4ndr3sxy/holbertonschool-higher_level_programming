@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Unittest for base"""
 
 import unittest
@@ -7,8 +6,7 @@ from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
-    """"""
-
+    """Test to file/ class Rectangle"""
     def test_00_case_width_success(self):
         new_obj = Rectangle(5, 10)
         self.assertEqual(new_obj.width, 5)
@@ -156,3 +154,15 @@ class TestRectangle(unittest.TestCase):
     def test_23_case_whit_list(self):
         with self.assertRaises(TypeError):
             Rectangle([7, 9], 3)
+
+    def test_24_case_check_area_result(self):
+        new_obj = Rectangle(3, 2)
+        self.assertEqual(new_obj.area(), 6)
+        with self.assertRaises(TypeError):
+            Rectangle.area()
+        self.assertEqual(new_obj.area(), 6)
+        with self.assertRaises(TypeError):
+            Rectangle.area(3, 5, 6)
+        self.assertEqual(new_obj.area(), 6)
+        with self.assertRaises(TypeError):
+            Rectangle.area(float('inf'), 5)
