@@ -9,8 +9,10 @@ from models.rectangle import Rectangle
 from models.square import Square
 import json
 
+
 class TestBase(unittest.TestCase):
     """"""
+
     def test_00_case_base_success_id(self):
         new_obj1 = Base()
         self.assertEqual(new_obj1.id, 2)
@@ -28,7 +30,7 @@ class TestBase(unittest.TestCase):
         self.assertNotEqual(new_obj4.id, 50)
 
     def test_01_case_instance_Rectangle_success(self):
-        new_obj1 = Rectangle(5,5)
+        new_obj1 = Rectangle(5, 5)
         self.assertIsInstance(new_obj1, Rectangle)
 
     def test_01_case_instance_Square_success(self):
@@ -86,3 +88,54 @@ class TestBase(unittest.TestCase):
         new_obj2.x = 15
         self.assertEqual(new_obj2.x, 15)
 
+    def test_set_id_none(self):
+        b_cero = Base()
+        self.assertEqual(b_cero.id, 4)
+
+    def test_set_id_none_fail(self):
+        b_one = Base()
+        self.assertNotEqual(b_one.id, 74)
+
+    def test_set_id_74(self):
+        b = Base(74)
+        self.assertEqual(b.id, 74)
+
+    def test_set_id_74_fail(self):
+        b74 = Base()
+        self.assertNotEqual(b74.id, 74)
+
+    def test_private(self):
+        b_private = Base(3)
+        with self.assertRaises(AttributeError):
+            print(b_private.nb_objects)
+        with self.assertRaises(AttributeError):
+            print(b_private.__nb_objects)
+
+    def test_to_json_string(self):
+        Base._Base__nb_objects = 0
+        b1 = {"id": 1, "width": 2, "height": 3, "x": 4, "y": 5}
+        b2 = {"id": 5, "width": 4, "height": 3, "x": 2, "y": 1}
+        json_s = Base.to_json_string([b1, b2])
+        self.assertTrue(type(json_s) is str)
+        b0 = json.loads(json_s)
+        self.assertEqual(b0, [b1, b2])
+
+    def test_from_json_string_empty(self):
+        self.assertEqual([], Base.from_json_string(""))
+
+    def test_from_json_string_None(self):
+        self.assertEqual([], Base.from_json_string(None))
+
+    def test_from_json_string(self):
+        """Tests normal from_json_string"""
+        json_str = '[{"id": 1, "width": 2, "height": 3, "x": 4, "y": 5}, \
+                     {"id": 5, "width": 4, "height": 3, "x": 2, "y": 1}]'
+        json_l = Base.from_json_string(json_str)
+        self.assertTrue(type(json_l[0]) is dict)
+        self.assertTrue(type(json_l[1]) is dict)
+        self.assertTrue(type(json_l) is list)
+        self.assertEqual(len(json_l), 2)
+        self.assertEqual(json_l[0], {"id": 1, "width": 2, "height": 3,
+                                     "x": 4, "y": 5})
+        self.assertEqual(json_l[1], {"id": 5, "width": 4, "height": 3,
+                                     "x": 2, "y": 1})

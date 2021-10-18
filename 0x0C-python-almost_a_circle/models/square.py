@@ -24,27 +24,22 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Update information of the instance"""
+        #if args and args is not None:
         if args and len(args) > 0:
-            dictionary_temporal = {0: "id", 1: "size",
-                                   2: "_Rectangle__x",
-                                   3: "_Rectangle__y"}
             for i in range(len(args)):
-                value = dictionary_temporal[i]
-                if value == "size":
-                    self.size = args[i]
-                else:
-                    self.__dict__[value] = args[i]
+                if i == 0:
+                    self.id = args[i]
+                if i == 1:
+                    self.width = args[i]
+                    self.height = args[i]
+                if i == 2:
+                    self.x = args[i]
+                if i == 3:
+                    self.y = args[i]
         else:
-            for key in kwargs:
-                if key == "size":
-                    self.size = kwargs[key]
-                else:
-                    for key_dict in self.__dict__:
-                        len_key = len(key) * -1
-                        len_key_dict = key_dict[len_key:]
-                        if key == len_key_dict:
-                            self.__dict__[key_dict] = kwargs[key]
-                            break
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """Return __dict__"""
