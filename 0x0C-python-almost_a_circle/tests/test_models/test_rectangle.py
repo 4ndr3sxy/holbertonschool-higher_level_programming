@@ -7,7 +7,6 @@ from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
     """Test to file/ class Rectangle"""
-
     def test_00_case_width_success(self):
         new_obj = Rectangle(5, 10)
         self.assertEqual(new_obj.width, 5)
@@ -25,8 +24,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(new_obj.y, 0)
 
     def test_00_case_id_default(self):
-        new_obj = Rectangle(5, 10)
-        self.assertEqual(new_obj.id, 10)
+        new_obj5 = Rectangle(5, 10)
+        self.assertEqual(new_obj5.id, 15)
 
     def test_00_case_width_success_01(self):
         new_obj = Rectangle(8, 12, 5, 3, 26)
@@ -247,4 +246,4 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rUpdateKarg.id, 6)
         self.assertEqual(rUpdateKarg.area(), 30)
         self.assertEqual(rUpdateKarg.x, 19)
-        self.assertEqual(rUpdateKarg.y, 14)
+        self.assertEqual(rUpdateKarg.y, 14)  

@@ -8,6 +8,8 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 import json
+import io
+from contextlib import redirect_stdout
 
 
 class TestBase(unittest.TestCase):
@@ -139,3 +141,45 @@ class TestBase(unittest.TestCase):
                                      "x": 4, "y": 5})
         self.assertEqual(json_l[1], {"id": 5, "width": 4, "height": 3,
                                      "x": 2, "y": 1})
+
+    def test_base_case_00(self):
+        """Checks the display method"""
+        file = io.StringIO()
+        expected = "\n" * 2 + ((' ' * 2 + '#' * 2 + '\n') * 3)
+        r1 = Rectangle(2, 3, 2, 2)
+        with redirect_stdout(file):
+            r1.display()
+        self.assertEqual(file.getvalue(), expected)
+    def test_base_case_01(self):
+        """Checks the display method"""
+        file = io.StringIO()
+        expected = "\n" * 0 + ((' ' * 1 + '#' * 3 + '\n') * 2)
+        r1 = Rectangle(3, 2, 1, 0)
+        with redirect_stdout(file):
+            r1.display()
+        self.assertEqual(file.getvalue(), expected)
+
+    def test_display(self):
+        """Test display with valid arguments"""
+        # creation of file that stores the
+        # representation of display() in the future
+        f = io.StringIO()
+        s = ('#' * 4 + '\n') * 3
+        r1 = Rectangle(4, 3)
+        with redirect_stdout(f):
+            r1.display()
+        self.assertEqual(f.getvalue(), s)
+    def test_display_valid(self):
+        """Test display with valid arguments"""
+        file = io.StringIO()
+        expected = ('#' * 32 + '\n') * 32
+        r1 = Rectangle(32, 32)
+        with redirect_stdout(file):
+            r1.display()
+        self.assertEqual(file.getvalue(), expected)
+        file = io.StringIO()
+        expected = ('#' * 2 + '\n') * 52
+        r2 = Rectangle(2, 52)
+        with redirect_stdout(file):
+            r2.display()
+        self.assertEqual(file.getvalue(), expected)
