@@ -3,7 +3,6 @@
 """Unittest for base"""
 
 import unittest
-
 from models.rectangle import Rectangle
 
 
@@ -165,8 +164,7 @@ class TestRectangle(unittest.TestCase):
             Rectangle.area()
         self.assertEqual(new_obj.area(), 6)
         with self.assertRaises(TypeError):
-            Rectangle.area(3,5, 6)
+            Rectangle.area(3, 5, 6)
         self.assertEqual(new_obj.area(), 6)
         with self.assertRaises(TypeError):
             Rectangle.area(float('inf'), 5)
-
