@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-"""Imports"""
+"""Imports
+Class/Object Base - base code to other class's"""
 import json
-
-"""Class/Object Base - base code to other class's"""
+import os
 
 
 class Base:
@@ -60,6 +60,8 @@ class Base:
         """Load information of file .json"""
         new_list = []
         filename = str(cls.__name__) + ".json"
+        if not os.path.exists(filename):
+            return new_list
         with open(filename, 'r') as f:
             read_line = f.read()
         lists = cls.from_json_string(read_line)
