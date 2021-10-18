@@ -3,6 +3,7 @@
 """Imports
 Class/Object Base - base code to other class's"""
 import json
+import csv
 import os
 
 
@@ -58,6 +59,35 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """Load information of file .json"""
+        new_list = []
+        filename = str(cls.__name__) + ".json"
+        if not os.path.exists(filename):
+            return new_list
+        with open(filename, 'r') as f:
+            read_line = f.read()
+        lists = cls.from_json_string(read_line)
+        for i in range(len(lists)):
+            new_list.append(cls.create(**lists[i]))
+        return new_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = str(cls.__name__) + ".csv"
+        fields = []
+        if cls.__name__ == "Rectangle":
+            fields = ['id', 'width', 'height', 'x', 'y']
+        elif cls.__name__ == "Square":
+            fields = ['id', 'size', 'x', 'y']
+
+        with open(filename, 'w') as f:
+            csv_file = csv.DictWriter(f, fieldnames=fields)
+            csv_file.writeheader()
+            for obj in list_objs:
+                value = obj.to_dictionary()
+                csv_file.writerow(value)
+
+    @classmethod
+    def load_from_file_csv(cls):
         new_list = []
         filename = str(cls.__name__) + ".json"
         if not os.path.exists(filename):
