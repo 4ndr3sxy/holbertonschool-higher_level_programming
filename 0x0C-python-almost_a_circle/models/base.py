@@ -63,6 +63,6 @@ class Base:
         with open(filename, 'r') as f:
             read_line = f.read()
         lists = cls.from_json_string(read_line)
-        for i in lists:
-            new_list.append(cls.create(**i))
+        for i in range(len(lists)):
+            new_list.append(cls.create(**lists[i]))
         return new_list
