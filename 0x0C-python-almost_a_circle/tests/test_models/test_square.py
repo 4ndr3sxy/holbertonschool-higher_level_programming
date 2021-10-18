@@ -31,3 +31,47 @@ class TestSquare(unittest.TestCase):
     def test_01_case_fail_01_without_args(self):
         with self.assertRaises(TypeError):
             new_obj = Square()
+
+
+    def test_02_setter_size_height_success(self):
+        new_obj = Square(8, 5, 3, 26)
+        new_obj.size = 40
+        self.assertEqual(new_obj.height, 40)
+
+    def test_02_setter_size_width_success(self):
+        new_obj = Square(8, 5, 3, 26)
+        new_obj.size = 40
+        self.assertEqual(new_obj.width, 40)
+
+    def test_02_setter_size_fail(self):
+        new_obj = Square(8, 5, 3, 26)
+        with self.assertRaises(ValueError):
+            new_obj.size = -8
+
+    def test_02_setter_x_success(self):
+        new_obj = Square(8, 5, 3, 26)
+        new_obj.x = 40
+        self.assertEqual(new_obj.x, 40)
+
+    def test_02_setter_y_success(self):
+        new_obj = Square(8, 5, 3, 26)
+        new_obj.y = 81
+        self.assertEqual(new_obj.y, 81)
+
+    def test_02_setter_x_fail(self):
+        new_obj = Square(8, 5, 3, 26)
+        with self.assertRaises(ValueError):
+            new_obj.x = -8
+
+    def test_02_setter_y_fail(self):
+        new_obj = Square(8, 5, 3, 26)
+        with self.assertRaises(ValueError):
+            new_obj.y = -8
+
+    def test_03_area_success(self):
+        new_obj = Square(7, 5, 3, 26)
+        self.assertEqual(new_obj.area(), 49)
+
+    def test_03_area_fail(self):
+        new_obj = Square(8, 5, 3, 26)
+        self.assertNotEqual(new_obj.area(), 49)
