@@ -24,7 +24,6 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Update information of the instance"""
-        #if args and args is not None:
         if args and len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
