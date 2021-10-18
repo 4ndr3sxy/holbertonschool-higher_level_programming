@@ -82,9 +82,12 @@ class Base:
         with open(filename, 'w') as f:
             csv_file = csv.DictWriter(f, fieldnames=fields)
             csv_file.writeheader()
-            for obj in list_objs:
-                value = obj.to_dictionary()
-                csv_file.writerow(value)
+            if list_objs is not None:
+                for obj in list_objs:
+                    value = obj.to_dictionary()
+                    csv_file.writerow(value)
+            else:
+                csv_file.writerow("[]")
 
     @classmethod
     def load_from_file_csv(cls):
