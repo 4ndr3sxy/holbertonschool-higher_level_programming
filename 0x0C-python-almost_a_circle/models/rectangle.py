@@ -102,7 +102,13 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Return __dict__"""
-        return self.__dict__
+        new_dict = {}
+        for key, value in self.__dict__.items():
+            if key[:12] == "_Rectangle__":
+                new_dict[key[12:]] = value
+            else:
+                new_dict[key] = value
+        return new_dict
 
     def __str__(self):
         """Standar print()"""
