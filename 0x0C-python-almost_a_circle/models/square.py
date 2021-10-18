@@ -1,32 +1,29 @@
 #!/usr/bin/python3
-"""Import Class Rectangle"""
+"""Import Class Rectangle
+Class/object Square inherits of Rectangle"""
 from models.rectangle import Rectangle
-
-"""Class/object Square inherits of Rectangle"""
 
 
 class Square(Rectangle):
     """Args - class Rectangle"""
 
-    """Constructor"""
-
     def __init__(self, size, x=0, y=0, id=None):
+        """Constructor"""
         super().__init__(size, size, x, y, id)
 
-    """Get size"""
     @property
     def size(self):
+        """Get size"""
         return self.width
 
-    """Set size"""
     @size.setter
     def size(self, value):
+        """Set size"""
         self.width = value
         self.height = value
 
-    """Update information of the instance"""
-
     def update(self, *args, **kwargs):
+        """Update information of the instance"""
         if args and len(args) > 0:
             dictionary_temporal = {0: "id", 1: "size",
                                    2: "_Rectangle__x",
@@ -49,13 +46,11 @@ class Square(Rectangle):
                             self.__dict__[key_dict] = kwargs[key]
                             break
 
-    """Return __dict__"""
-
     def to_dictionary(self):
+        """Return __dict__"""
         return self.__dict__
 
-    """Standar print()"""
-
     def __str__(self):
+        """Standar print()"""
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.x, self.y, self.width)
