@@ -2,11 +2,17 @@
 """Unittest for base"""
 
 import unittest
+from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
+import json
+import io
+from contextlib import redirect_stdout
 
 
 class TestRectangle(unittest.TestCase):
     """Test to file/ class Rectangle"""
+
     def test_00_case_width_success(self):
         new_obj = Rectangle(5, 10)
         self.assertEqual(new_obj.width, 5)
@@ -25,7 +31,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_00_case_id_default(self):
         new_obj5 = Rectangle(5, 10)
-        self.assertEqual(new_obj5.id, 15)
+        self.assertEqual(new_obj5.id, 20)
 
     def test_00_case_width_success_01(self):
         new_obj = Rectangle(8, 12, 5, 3, 26)
@@ -246,4 +252,92 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rUpdateKarg.id, 6)
         self.assertEqual(rUpdateKarg.area(), 30)
         self.assertEqual(rUpdateKarg.x, 19)
-        self.assertEqual(rUpdateKarg.y, 14)  
+        self.assertEqual(rUpdateKarg.y, 14)
+
+    def setUp(self):
+        """Reset the number of objects"""
+        Base._nb_objects = 0
+
+    def test_args_order(self):
+        """Checks correct order of arguments"""
+        f = io.StringIO()
+        s = "[Rectangle] (31) 10/10 - 10/89"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(height=89)
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (89) 10/10 - 10/10"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 89})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        r1.update(width=1, x=2)
+        f = io.StringIO()
+        s = "[Rectangle] (89) 2/10 - 1/10"
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        r1.update(y=1, width=2, x=3, id=89)
+        f = io.StringIO()
+        s = "[Rectangle] (89) 3/1 - 2/10"
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        r1.update(x=1, height=2, y=3, width=4)
+        f = io.StringIO()
+        s = "[Rectangle] (89) 1/3 - 4/2"
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (89) 10/10 - 1/10"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 89, 'width': 1})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (88) 10/10 - 1/2"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 88, 'width': 1, 'height': 2})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (88) 3/10 - 1/2"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 88, 'width': 1, 'height': 2, 'x': 3})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+        f = io.StringIO()
+        s = "[Rectangle] (88) 3/4 - 1/2"
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(**{'id': 88, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        with redirect_stdout(f):
+            print(r1, end="")
+        self.assertEqual(f.getvalue(), s)
+
+    def test_wrong_keywords(self):
+        """Test keywords"""
+        s1 = Rectangle(10, 2, 1)
+        s1.update(key=23, school=32)
+        self.assertEqual(getattr(s1, "key", 0), 0)
+        self.assertEqual(getattr(s1, "school", 0), 0)
+
+    def test_many_args(self):
+        """Test with too many arguments"""
+        r1 = Rectangle(10, 10)
+        r1.update(10, 10, 10, 10, 10, 10, 10, 10)
+        self.assertEqual(str(r1), "[Rectangle] (10) 10/10 - 10/10")
