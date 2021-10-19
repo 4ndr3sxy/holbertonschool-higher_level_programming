@@ -31,7 +31,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_00_case_id_default(self):
         new_obj5 = Rectangle(5, 10)
-        self.assertEqual(new_obj5.id, 20)
+        self.assertEqual(new_obj5.id, 30)
 
     def test_00_case_width_success_01(self):
         new_obj = Rectangle(8, 12, 5, 3, 26)
@@ -261,7 +261,7 @@ class TestRectangle(unittest.TestCase):
     def test_args_order(self):
         """Checks correct order of arguments"""
         f = io.StringIO()
-        s = "[Rectangle] (31) 10/10 - 10/89"
+        s = "[Rectangle] (41) 10/10 - 10/89"
         r1 = Rectangle(10, 10, 10, 10)
         r1.update(height=89)
         with redirect_stdout(f):
