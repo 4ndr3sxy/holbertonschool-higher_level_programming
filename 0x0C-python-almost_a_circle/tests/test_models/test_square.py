@@ -180,7 +180,7 @@ class TestSquare(unittest.TestCase):
         f = io.StringIO()
         with redirect_stdout(f):
             print(s2)
-        self.assertEqual(f.getvalue(), "[Square] (30) 2/1 - 10\n")
+        self.assertEqual(f.getvalue(), "[Square] (28) 2/1 - 10\n")
 
     def test_diferents_squares(self):
         """checks that squares are differents"""
