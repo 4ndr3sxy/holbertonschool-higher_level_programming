@@ -72,32 +72,41 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """create save file to kind .csv"""
         filename = str(cls.__name__) + ".csv"
-        fields = []
         if cls.__name__ == "Rectangle":
             fields = ['id', 'width', 'height', 'x', 'y']
         elif cls.__name__ == "Square":
             fields = ['id', 'size', 'x', 'y']
 
         with open(filename, 'w') as f:
-            csv_file = csv.DictWriter(f, fieldnames=fields)
-            csv_file.writeheader()
-            if list_objs is not None:
-                for obj in list_objs:
-                    value = obj.to_dictionary()
-                    csv_file.writerow(value)
+            if list_objs is None:
+                f.write("[]")
             else:
-                csv_file.writerow("[]")
+                new_list = []
+                csv_file = csv.DictWriter(f, fieldnames=fields)
+                for obj in list_objs:
+                    obj_convert = obj.to_dictionary()
+                    new_list.append(csv_file.writerow(obj_convert))
 
     @classmethod
     def load_from_file_csv(cls):
+        """create load method to file .csv"""
         new_list = []
-        filename = str(cls.__name__) + ".json"
-        if not os.path.exists(filename):
-            return new_list
-        with open(filename, 'r') as f:
-            read_line = f.read()
-        lists = cls.from_json_string(read_line)
-        for i in range(len(lists)):
-            new_list.append(cls.create(**lists[i]))
-        return new_list
+        new_list2 = []
+        filename = str(cls.__name__) + ".csv"
+        if cls.__name__ == "Rectangle":
+            fields = ['id', 'width', 'height', 'x', 'y']
+        elif cls.__name__ == "Square":
+            fields = ['id', 'size', 'x', 'y']
+        with open(filename, mode='r') as f:
+            csv_reader = csv.DictReader(f, fieldnames=fields)
+            for obj in csv_reader:
+                dict_temp = {}
+                for key, value in obj.items():
+                    dict_temp[key] = int(value)
+                new_list.append(dict_temp)
+            for i in new_list:
+                new_object = cls.create(**i)
+                new_list2.append(new_object)
+            return new_list2
