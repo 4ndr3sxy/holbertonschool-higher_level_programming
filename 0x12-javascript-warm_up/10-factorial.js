@@ -1,5 +1,5 @@
 #!/usr/bin/node
-function factorial_r (num) {
+function factorialR (num) {
     if (num === 1 || isNaN(num)) {
         return 1;
     } else {
@@ -8,4 +8,4 @@ function factorial_r (num) {
 }
 
 const arg = process.argv.slice(2);
-console.log(factorial_r(parseInt(arg[0])));
+console.log(factorialR(parseInt(arg[0])));
