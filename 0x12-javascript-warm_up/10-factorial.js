@@ -6,7 +6,7 @@ function factorialR (num) {
     if (num === 1 || isNaN(num)) {
         return 1;
     } else {
-        return num * factorialR(num - 1);
+        return (num * factorialR(num - 1));
     }
 }
 
