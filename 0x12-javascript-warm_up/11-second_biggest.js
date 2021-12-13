@@ -5,26 +5,26 @@ function second_biggest(args)
     let second = 0;
     args.forEach(element => {
         if (parseInt(element) > biggest)
-            biggest = element
+            biggest = element;
     });
     args.forEach(element => {
         if (parseInt(element) > second && element !== biggest)
         {
-            second = element
+            second = element;
         }
     });
-    return second
+    return second;
 }
 
-const arg = process.argv.slice(2)
-const countArg = Object.keys(arg).length
+const arg = process.argv.slice(2);
+const countArg = Object.keys(arg).length;
 switch (countArg)
 {
     case 0:
     case 1:
-        console.log(0)
-        break
+        console.log(0);
+        break;
     default:
-        console.log(second_biggest(arg))
-        break
+        console.log(second_biggest(arg));
+        break;
 }
