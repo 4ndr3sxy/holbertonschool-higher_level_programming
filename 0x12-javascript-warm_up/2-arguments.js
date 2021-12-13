@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const arg = process.argv.slice(2);
-const countArg = Object.keys(arg).length;
+let countArg = Object.keys(arg).length;
 switch (countArg) {
 	case 0:
 		console.log('No argument');
