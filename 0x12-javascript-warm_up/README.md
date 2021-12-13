@@ -76,59 +76,6 @@ $ sudo apt-get install -y nodejs
 [Documentation](https://intranet.hbtn.io/rltoken/FuXjfOYe18hUXCDoyMxBSg) 
 
  ` $ sudo npm install semistandard --global
- ` ## Quiz questions
-Show
-#### Question #0
- Quiz question Body Does Javascript have   ` String `   as a native datatype?
- Quiz question Answers * Yes
-
-* No
-
- Quiz question Tips #### Question #1
- Quiz question Body Does Javascript have   ` Array `   as a native datatype?
- Quiz question Answers * Yes
-
-* No
-
- Quiz question Tips #### Question #2
- Quiz question Body Does Javascript have   ` Set `   as a native datatype?
- Quiz question Answers * Yes
-
-* No
-
- Quiz question Tips #### Question #3
- Quiz question Body Does Javascript have   ` Dictionary `   as a native datatype?
- Quiz question Answers * Yes
-
-* No
-
- Quiz question Tips #### Tips:
-Everything is   ` Object `   and   ` Object `   type in Javascript is powerful.
-#### Question #4
- Quiz question Body What does   ` let `   mean? (please check all true answers)
- Quiz question Answers * It’s the keyword to define a variable in the local scope
-
-* It’s the keyword to define a global variable
-
-* It’s the keyword to define a variable with optionally initializing it to a value
-
-* It’s the keyword to define a constant variable
-
-* It’s the keyword to define a variable that can be re-assign during the execution
-
- Quiz question Tips #### Question #5
- Quiz question Body What does   ` const `   mean? (please check all true answers)
- Quiz question Answers * It’s the keyword to define a variable in the local scope
-
-* It’s the keyword to define a global variable
-
-* It’s the keyword to define a variable with optionally initializing it to a value
-
-* It’s the keyword to define a constant variable
-
-* It’s the keyword to define a variable that can be re-assign during the execution
-
- Quiz question Tips ## Tasks
 ### 0. First constant, first print
           mandatory         Progress vs Score  Task Body Write a script that prints “JavaScript is amazing”:
 * You must create a constant variable called  ` myVar `  with the value “JavaScript is amazing”
