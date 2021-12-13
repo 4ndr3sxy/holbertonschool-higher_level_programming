@@ -1,13 +1,9 @@
 #!/usr/bin/node
-function factorial_r(num)
-{
-    if (num === 1 || isNaN(num))
-    {
+function factorial_r (num) {
+    if (num === 1 || isNaN(num)) {
         return 1;
-    }
-    else
-    {
-        return num * factorial_r(num-1);
+    } else {
+        return num * factorial_r(num - 1);
     }
 }
 
