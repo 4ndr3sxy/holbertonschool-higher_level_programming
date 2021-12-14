@@ -7,7 +7,7 @@ class Square extends SquareI {
       for (let i = 0; i < this.width; i++) {
         result += c.repeat(this.width) + '\n';
       }
-      console.log(result.slice(0,-1));
+      console.log(result.slice(0, -1));
     } else {
       this.print();
     }
