@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database"""
+"""that contains the class definition of a City"""
 
 import sys
 from sqlalchemy.orm import Session
