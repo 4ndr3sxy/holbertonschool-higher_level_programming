@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database"""
+""" lists all State objects from the database hbtn_0e_6_usa"""
 
 import sys
 from sqlalchemy.orm import Session
