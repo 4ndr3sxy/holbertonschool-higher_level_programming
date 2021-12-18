@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database"""
+"""adds the State object Louisiana database hbtn_0e_6_usa"""
 
 import sys
 from sqlalchemy.orm import Session
@@ -19,6 +19,5 @@ if __name__ == "__main__":
     session.add(new_state)
     session.commit()
     print(new_state.id)
-
 
     session.close()
