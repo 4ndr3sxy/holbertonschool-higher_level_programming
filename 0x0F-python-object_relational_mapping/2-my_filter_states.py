@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""File to connect a DB using MySQLdb"""
+"""takes in an argument and displays all values in the states"""
 
 import sys
 import MySQLdb
