@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""File to connect a DB using MySQLdb"""
+"""lists all states with a name starting with N"""
 
 import sys
 import MySQLdb
