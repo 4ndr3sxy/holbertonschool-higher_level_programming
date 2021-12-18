@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""File to connect a DB using MySQLdb"""
+"""lists all cities from the database hbtn_0e_4_usa"""
 
 import sys
 import MySQLdb
