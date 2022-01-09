@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database"""
+"""prints the first State object from the database hbtn_0e_6_usa"""
 
 import sys
 from sqlalchemy.orm import Session
@@ -13,5 +13,8 @@ if __name__ == "__main__":
 
     session = Session(engine)
     state = session.query(State).order_by(State.id).first()
-    print("{}: {}".format(state.id, state.name))
+    if not state:
+        print("Nothing")
+    else:
+        print("{}: {}".format(state.id, state.name))
     session.close()

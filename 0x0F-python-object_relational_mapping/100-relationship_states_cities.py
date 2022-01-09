@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database"""
+"""creates the State “California” with the City “San Francisco”"""
 
 import sys
 from sqlalchemy.orm import Session

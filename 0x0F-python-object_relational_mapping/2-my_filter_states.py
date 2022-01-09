@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""File to connect a DB using MySQLdb"""
+"""takes in an argument and displays all values in the states"""
 
 import sys
 import MySQLdb
@@ -8,16 +8,15 @@ if __name__ == "__main__":
 
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-
+    name = sys.argv[4]
     cur = db.cursor()
-    query = "SELECT * FROM states WHERE name = '{:s}' \
-    ORDER BY id ASC".format(sys.argv[4])
-    cur.execute(query)
+    cur.execute("""SELECT * FROM states ORDER BY id ASC""".format(name))
 
     info = cur.fetchall()
 
     for state in info:
-        print(state)
+        if state[1] == name:
+            print(state)
 
     cur.close()
     db.close()

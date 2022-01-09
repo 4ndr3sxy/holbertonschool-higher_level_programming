@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""File to connect a DB using MySQLdb"""
+"""takes in an argument and displays all values in the states more safe"""
 
 import sys
 import MySQLdb
@@ -10,7 +10,8 @@ if __name__ == "__main__":
                          user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC", (sys.argv[4],))
+    cur.execute("""SELECT * FROM states WHERE name = %s
+    ORDER BY id ASC""", (sys.argv[4],))
 
     info = cur.fetchall()
 

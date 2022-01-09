@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""File to connect a DB using MySQLdb"""
+"""lists all states with a name starting with N"""
 
 import sys
 import MySQLdb
@@ -11,12 +11,13 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
 
     info = cur.fetchall()
 
     for state in info:
-        print(state)
+        if state[1][0] == 'N':
+            print(state)
 
     cur.close()
     db.close()

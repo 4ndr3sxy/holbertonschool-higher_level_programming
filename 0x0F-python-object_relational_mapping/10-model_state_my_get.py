@@ -15,12 +15,12 @@ if __name__ == "__main__":
 
     session = Session(engine)
 
-    state = session.query(State).filter(State.name == sys.argv[4]).order_by(State.id)
-    for state in session.query(State).filter(State.name == sys.argv[4]).order_by(State.id):
+    states = (session.query(State).filter(State.name == sys.argv[4])
+              .order_by(State.id))
+    for state in states:
         flag = True
         print("{}".format(state.id, state.name))
     if flag is False:
         print("Not found")
-
 
     session.close()

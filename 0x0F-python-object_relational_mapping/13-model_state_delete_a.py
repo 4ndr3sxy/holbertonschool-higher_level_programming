@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database"""
+"""deletes all State objects with a name containing the letter a"""
 
 import sys
 from sqlalchemy.orm import Session
@@ -14,7 +14,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    for state_delete in session.query(State).filter(State.name.like("%a%")).all():
+    query = (session.query(State).filter(State.name.like("%a%")).all())
+    for state_delete in query:
         session.delete(state_delete)
     session.commit()
 

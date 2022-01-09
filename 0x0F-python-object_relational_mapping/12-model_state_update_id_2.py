@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database"""
+"""changes the name of a State object from the database hbtn_0e_6_usa"""
 
 import sys
 from sqlalchemy.orm import Session
@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     session = Session(engine)
 
-    state_update = session.query(State).filter_by(id = 2).first()
+    state_update = session.query(State).filter_by(id=2).first()
     state_update.name = 'New Mexico'
     session.commit()
 

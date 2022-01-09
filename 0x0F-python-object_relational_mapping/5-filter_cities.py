@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""File to connect a DB using MySQLdb"""
+""" takes in the name of a state as an argument and lists all cities"""
 
 import sys
 import MySQLdb
