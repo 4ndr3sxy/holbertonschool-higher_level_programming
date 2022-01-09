@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" Show type and content using requests """
 import requests
 
 if __name__ == "__main__":
