@@ -1,3 +1,3 @@
 #!/bin/bash
 # Only status code
-curl -sI "$1" | grep "HTTP" | cut -d ' ' -f2
+curl -sIw %{http_code} $1 -o /dev/null
