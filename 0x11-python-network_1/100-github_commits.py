@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Show the lastone ten commits in a repo github"""
 import requests
 from sys import argv
 
