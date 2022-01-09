@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Send parameter emain in request"""
 import urllib.parse
 import urllib.request
 import sys
