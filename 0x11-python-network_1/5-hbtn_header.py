@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Show X-Request-Id using requests"""
 import requests
 import sys
 
