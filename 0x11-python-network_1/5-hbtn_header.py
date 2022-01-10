@@ -5,7 +5,4 @@ import sys
 
 if __name__ == "__main__":
     r = requests.get(sys.argv[1])
-    for header, value in r.__dict__['headers'].items():
-        if header == "X-Request-Id":
-            print(value)
-            break
+    print(r.headers.get('X-Request-Id'))
