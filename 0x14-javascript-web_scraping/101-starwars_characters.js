@@ -9,13 +9,16 @@ request('https://swapi-api.hbtn.io/api/films/' + args[2], function (err, request
   }
   const json = JSON.parse(requestFilm.body);
   json.characters.forEach(element => {
-    request(element, function (err, requestChar) {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      const jsonCharacter = JSON.parse(requestChar.body);
-      console.log(jsonCharacter.name);
+    const fetch = new Promise((resolve, reject) => {
+      request(element, (err, requestChar) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        const jsonCharacter = JSON.parse(requestChar.body);
+        resolve(jsonCharacter.name);
+      });
     });
+    fetch.then((val) => console.log(val));
   });
 });
